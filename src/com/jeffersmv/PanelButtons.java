@@ -9,8 +9,8 @@ import java.util.Random;
  * Created by Jeff on 14.02.2016.
  */
 public class PanelButtons extends JPanel {
-    private ArrayList<Integer> arrayList;
-    private int[][] numbers = new int[4][4];
+    private static ArrayList<Integer> arrayList;
+    private static int[][] numbers = new int[4][4];
 
     public PanelButtons() {
         setLayout(new GridLayout(4, 4, 0, 0));
@@ -27,7 +27,7 @@ public class PanelButtons extends JPanel {
 
     public PanelButtons(ArrayList<Integer> arrayList) {
         this.arrayList = arrayList;
-        setLayout(new GridLayout(4,4,0,0));
+        setLayout(new GridLayout(4, 4, 0, 0));
         removeAll();
         initButtons(getArrayList());
 
@@ -42,8 +42,9 @@ public class PanelButtons extends JPanel {
         return arrayList;
     }
 
-    public void setArrayList(ArrayList<Integer> arrayList) {
-        this.arrayList = arrayList;
+    public static void setArrayList(ArrayList<Integer> arrayList) {
+        PanelButtons.arrayList = arrayList;
+
     }
 
     private ArrayList randomButtons() {
@@ -62,13 +63,12 @@ public class PanelButtons extends JPanel {
         return arrayListRandomButtons;
     }
 
-    public void initButtons(ArrayList<Integer> arrayList) {
+    static void initButtons(ArrayList<Integer> arrayList) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 numbers[i][j] = arrayList.get(i * 4 + j);
-//                System.out.print(arrayList.get(i * 4 + j) + "; ");
                 JButton button = new JButton(Integer.toString(numbers[i][j]));
-                button.setFocusable(false);
+//                button.setFocusable(false);
                 add(button);
                 if (numbers[i][j] == 0) {
                     button.setVisible(false);
@@ -79,6 +79,7 @@ public class PanelButtons extends JPanel {
 
 
     }
+
 }
 
 

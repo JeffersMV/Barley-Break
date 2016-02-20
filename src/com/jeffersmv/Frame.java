@@ -25,15 +25,15 @@ public class Frame extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-
 //        setBounds(200, 100, 300, 300);
 //        createMenu();
 //        add(panelButtons);
 //        panelButtons.setVisible(true);
+        getContentPane().add(panelButtons);
 
-        Container container = getContentPane();
-        panelButtons.setDoubleBuffered(true);
-        container.add(panelButtons);
+//        Container container = getContentPane();
+//        panelButtons.setDoubleBuffered(true);
+//        container.add(panelButtons);
 //        removeAll();
 
 
